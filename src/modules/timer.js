@@ -17,23 +17,25 @@ const timer = (deadline) => {
 
     }
 
+    const pad = num => ('0' + num).slice(-2);
+
     const updateClock = () => {
 
         let getTime = getTimeRemaining();
 
-        timerHours.textContent = getTime.hours;
-        timerMinutes.textContent = getTime.minutes;
-        timerSeconds.textContent = getTime.seconds;
+        timerHours.textContent = pad(getTime.hours);
+        timerMinutes.textContent = pad(getTime.minutes);
+        timerSeconds.textContent = pad(getTime.seconds);
 
-        if (getTime.timeRenaining > 0) {
-            setTimeout(updateClock, 1000);
-        } else {
+        if (getTime.timeRenaining <= 0) {
+            clearInterval(intervalId);
             timerHours.textContent = '00';
             timerMinutes.textContent = '00';
             timerSeconds.textContent = '00';
         }
-
     }
+
+    const intervalId = setInterval(updateClock, 1000);
     updateClock();
 
 
