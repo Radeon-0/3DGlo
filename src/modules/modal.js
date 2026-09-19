@@ -27,6 +27,12 @@ const modal = () => {
                 return;
             }
 
+            opacity = 0;
+            position = -50;
+
+            modal.style.opacity = opacity;
+            modal.style.transform = `translateY(${position}px)`;
+
             animate();
         })
     });
