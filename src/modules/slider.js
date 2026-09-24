@@ -20,15 +20,13 @@ const slider = () => {
     const createDots = () => {
         for (let i = 0; i < slides.length; i++) {
             const dot = document.createElement("li");
-
             dot.classList.add("dot");
-
             portfolioDots.append(dot);
         }
 
     };
     createDots();
-    
+
     const dots = document.querySelectorAll('.dot');
 
     const autoSlide = () => {
